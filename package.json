@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "single-spa-layout": "^2.2.0"
+  }
+}

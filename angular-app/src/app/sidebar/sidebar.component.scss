@@ -1,0 +1,15 @@
+/* Ensure the container takes up the full height */
+.example-container {
+  height: 100vh;
+}
+
+/* Style the drawer */
+mat-drawer {
+  width: 250px; /* Adjust as needed */
+  border-right: 1px solid rgba(0, 0, 0, 0.12); /* Optional: Add a border to separate the drawer from the content */
+}
+
+/* Style the content */
+mat-drawer-content {
+  padding: 20px; /* Add some padding to the content */
+}

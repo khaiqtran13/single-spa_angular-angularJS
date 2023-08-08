@@ -18,17 +18,17 @@
     <script>
       System.import("@app/legacyAngularApp");
     </script>
+    <script src="main.js"></script>
+    <script src="angularjs-app/home.controller.js"></script>
   </head>
 
   <body>
-    <p>Click on the links to navigate to Angular micro app</p>
-    <br />
-
     <p>
       <a href="#!/home">AngularJs App</a>
       <br />
       <a href="#!/angular">Angular App</a>
     </p>
+    <app-sidebar></app-sidebar>
     <ui-view></ui-view>
     <script>
       System.import("single-spa").then(function (singleSpa) {

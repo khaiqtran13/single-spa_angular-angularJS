@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myAngJS">
+  <head>
+    <title>AngularJS</title>
+  </head>
+  <body>
+    <h1>AngularJS App</h1>
+    <input
+      type="text"
+      ng-model="vm.favColor"
+      placeholder="enter your fav color"
+    />
+    <p>color: {{ vm.colors[0] }}</p>
+    <ul>
+      <li ng-repeat="color in vm.colors">{{ color }}</li>
+    </ul>
+  </body>
+</html>

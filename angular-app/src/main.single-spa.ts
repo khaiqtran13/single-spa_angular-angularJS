@@ -23,7 +23,10 @@ const lifecycles = singleSpaAngular({
       AppModule
     );
   },
-  template: '<app-root />',
+  template: `
+  <app-sidebar></app-sidebar>
+  <app-root></app-root>
+  `,
   Router,
   NavigationStart,
   NgZone,

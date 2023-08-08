@@ -5,7 +5,7 @@ System.register([], function (_export) {
       _export(
         (window.legacyAngularApp = window.singleSpaAngularjs.default({
           angular: angular,
-          mainAngularModule: "main-module",
+          mainAngularModule: "myAngJS",
           uiRouter: true,
           perserveGlobal: false,
         }))
@@ -14,15 +14,7 @@ System.register([], function (_export) {
   };
 });
 
-// creation through Window
-// window.legacyAngularApp = window.singleSpaAngularjs.default({
-//   angular: angular,
-//   mainAngularModule: "main-module",
-//   uiRouter: true,
-//   perserveGlobal: false,
-// });
-
-var app = angular.module("main-module", ["ui.router"]);
+var app = angular.module("myAngJS", ["ui.router"]);
 
 app.config(function ($stateProvider) {
   $stateProvider.state({
@@ -33,35 +25,7 @@ app.config(function ($stateProvider) {
 });
 
 app.component("home", {
-  template: `First Name: <input type="text" ng-model="firstName" ng-change="vm.log()"><br>
-    Last Name: <input type="text" ng-model="lastName"><br>
-    <br>
-    Full Name: {{firstName + ' ' +  lastName }}`,
+  templateUrl: "angularjs-app/index.html",
   controllerAs: "vm",
-  controller: function () {
-    var vm = this;
-
-    vm.$onInit = function () {
-      console.log("mounting angularjs component");
-      console.log(
-        "legacyAngularApp status",
-        singleSpa.getAppStatus("legacyAngularApp")
-      );
-    };
-
-    vm.$onDestroy = function () {
-      console.log(
-        "legacyAngularApp status",
-        singleSpa.getAppStatus("legacyAngularApp")
-      );
-      console.log("unmounting angularjs component!");
-    };
-
-    vm.log = function () {
-      console.log(
-        "legacyAngularApp status",
-        singleSpa.getAppStatus("legacyAngularApp")
-      );
-    };
-  },
+  controller: "HomeController",
 });
