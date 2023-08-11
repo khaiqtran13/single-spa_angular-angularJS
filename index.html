@@ -9,15 +9,13 @@
         "imports": {
           "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.1/lib/system/single-spa.min.js",
           "@app/legacyAngularApp": "/main.js",
-          "@app/newAngularApp": "//localhost:8081/main.js"
+          "@app/newAngularApp": "//localhost:8081/main.js",
+          "@single-spa/layout": "node_modules/single-spa-layout/dist/esm/single-spa-layout.min.js"
         }
       }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/zone.js@0.11.3/dist/zone.min.js"></script>
-    <script>
-      System.import("@app/legacyAngularApp");
-    </script>
     <script src="main.js"></script>
     <script src="angularjs-app/home.controller.js"></script>
   </head>
@@ -43,6 +41,7 @@
           app: () => System.import("@app/newAngularApp"),
           activeWhen: ["#!/angular"],
         });
+
         window.singleSpa.start();
       });
     </script>

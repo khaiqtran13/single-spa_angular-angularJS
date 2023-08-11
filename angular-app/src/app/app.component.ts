@@ -5,24 +5,18 @@ import { Component, DoCheck, OnDestroy, OnInit } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit, OnDestroy, DoCheck {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'angular-app';
   ngOnInit(): void {
     console.log(
-      'newAngularApp status',
-      (window as any).singleSpa.getAppStatus('newAngularApp')
+      'newAngularApp mounting'
+      // (window as any).singleSpa.getAppStatus('newAngularApp')
     );
   }
   ngOnDestroy(): void {
     console.log(
-      'newAngularApp status',
-      (window as any).singleSpa.getAppStatus('newAngularApp')
-    );
-  }
-  ngDoCheck(): void {
-    console.log(
-      'newAngularApp status',
-      (window as any).singleSpa.getAppStatus('newAngularApp')
+      'newAngularApp unmounting'
+      // (window as any).singleSpa.getAppStatus('newAngularApp')
     );
   }
 }
