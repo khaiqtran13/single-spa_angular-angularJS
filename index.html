@@ -10,6 +10,7 @@
           "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.1/lib/system/single-spa.min.js",
           "@app/legacyAngularApp": "/main.js",
           "@app/newAngularApp": "//localhost:8081/main.js",
+          "@app/angularAppContent": "//localhost:8082/main.js",
           "@single-spa/layout": "node_modules/single-spa-layout/dist/esm/single-spa-layout.min.js"
         }
       }
@@ -22,9 +23,11 @@
 
   <body>
     <p>
-      <a href="#!/home">AngularJs App</a>
+      <a href="#!/home">AngularJS Content</a>
       <br />
       <a href="#!/angular">Angular App</a>
+      <br />
+      <a href="#!/angular-content">Angular Content</a>
     </p>
     <app-sidebar></app-sidebar>
     <ui-view></ui-view>
@@ -41,7 +44,11 @@
           app: () => System.import("@app/newAngularApp"),
           activeWhen: ["#!/angular"],
         });
-
+        window.singleSpa.registerApplication({
+          name: "angularAppContent",
+          app: () => System.import("@app/angularAppContent"),
+          activeWhen: ["#!/angular-content"],
+        });
         window.singleSpa.start();
       });
     </script>
