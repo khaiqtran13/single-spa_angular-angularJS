@@ -24,8 +24,7 @@ const lifecycles = singleSpaAngular({
     );
   },
   template: `
-  <app-sidebar></app-sidebar>
-  <app-root></app-root>
+    <sidebar-root />
   `,
   Router,
   NavigationStart,

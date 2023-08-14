@@ -9,7 +9,7 @@
         "imports": {
           "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.1/lib/system/single-spa.min.js",
           "@app/legacyAngularApp": "/main.js",
-          "@app/newAngularApp": "//localhost:8081/main.js",
+          "@app/angularSidebar": "//localhost:8081/main.js",
           "@app/angularAppContent": "//localhost:8082/main.js",
           "@single-spa/layout": "node_modules/single-spa-layout/dist/esm/single-spa-layout.min.js"
         }
@@ -19,30 +19,30 @@
     <script src="https://cdn.jsdelivr.net/npm/zone.js@0.11.3/dist/zone.min.js"></script>
     <script src="main.js"></script>
     <script src="angularjs-app/home.controller.js"></script>
+    <link rel="stylesheet" href="global-styles.css" />
   </head>
 
   <body>
     <p>
-      <a href="#!/home">AngularJS Content</a>
+      <a href="">Shell</a>
       <br />
-      <a href="#!/angular">Angular App</a>
+      <a href="#!/home">AngularJS Content</a>
       <br />
       <a href="#!/angular-content">Angular Content</a>
     </p>
-    <app-sidebar></app-sidebar>
-    <ui-view></ui-view>
+
     <script>
       System.import("single-spa").then(function (singleSpa) {
         window.singleSpa = singleSpa;
         window.singleSpa.registerApplication({
+          name: "angularSidebar",
+          app: () => System.import("@app/angularSidebar"),
+          activeWhen: () => true,
+        });
+        window.singleSpa.registerApplication({
           name: "legacyAngularApp",
           app: () => System.import("@app/legacyAngularApp"),
           activeWhen: ["#!/home"],
-        });
-        window.singleSpa.registerApplication({
-          name: "newAngularApp",
-          app: () => System.import("@app/newAngularApp"),
-          activeWhen: ["#!/angular"],
         });
         window.singleSpa.registerApplication({
           name: "angularAppContent",
