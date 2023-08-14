@@ -1,0 +1,9 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+}
+
+[id="single-spa-application:angularSidebar"] {
+  background-color: antiquewhite;
+  order: -1;
+}
