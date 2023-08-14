@@ -5,14 +5,16 @@
   </head>
   <body>
     <h1>AngularJS App</h1>
-    <input
-      type="text"
-      ng-model="vm.favColor"
-      placeholder="enter your fav color"
-    />
-    <p>color: {{ vm.colors[0] }}</p>
-    <ul>
-      <li ng-repeat="color in vm.colors">{{ color }}</li>
-    </ul>
+    <div ng-controller="HomeController as home">
+      <input
+        type="text"
+        ng-model="home.newColor"
+        placeholder="enter a new color"
+      />
+      <button ng-click="home.addColor()">Add</button>
+      <ul>
+        <li ng-repeat="color in home.colors">{{ color }}</li>
+      </ul>
+    </div>
   </body>
 </html>
