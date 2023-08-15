@@ -11,9 +11,7 @@ using `single-spa` we are able to create a micro-frontend running both Angular a
 3. in another terminal, run `http-server .` at the root
 4. navigate to app at `http://localhost:8080/`
 
-### TODO
-
-### Set-Up
+### TODO: Set-Up
 
 1. go to `angular-app` and `npm run build-spa` to build the Angular App
 2. within `angular-app` run `http-server dist/angular-app -p 8081 --cors`
