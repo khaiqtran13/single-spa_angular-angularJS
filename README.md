@@ -6,9 +6,12 @@ using `single-spa` we are able to create a micro-frontend running both Angular a
 
 ### Development
 
-1. go to `angular-app` and `npm run serve-spa` to serve the Angular App
-2. in another terminal, run `http-server .` at the root
-3. navigate to app at `http://localhost:8080/`
+1. go to `angular-app` and `npm run serve-spa` to serve the Angular Sidebar App
+2. in another terminal, go to `angular-app-content` and `npm serve --port 8082` to serve the Angular Content App
+3. in another terminal, run `http-server .` at the root
+4. navigate to app at `http://localhost:8080/`
+
+### TODO
 
 ### Set-Up
 
