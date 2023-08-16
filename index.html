@@ -8,7 +8,7 @@
       {
         "imports": {
           "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.1/lib/system/single-spa.min.js",
-          "@app/legacyAngularApp": "/main.js",
+          "@app/legacyAngularApp": "/angularjs-app/main.js",
           "@app/angularSidebar": "//localhost:8081/main.js",
           "@app/angularAppContent": "//localhost:8082/main.js",
           "@single-spa/layout": "node_modules/single-spa-layout/dist/esm/single-spa-layout.min.js"
@@ -17,12 +17,15 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/zone.js@0.11.3/dist/zone.min.js"></script>
-    <script src="main.js"></script>
+    <script src="/angularjs-app/main.js"></script>
     <script src="angularjs-app/home.controller.js"></script>
     <link rel="stylesheet" href="global-styles.css" />
   </head>
 
   <body>
+    <div id="angularjs-content"></div>
+    <div id="angular-content"></div>
+
     <script>
       System.import("single-spa").then(function (singleSpa) {
         window.singleSpa = singleSpa;

@@ -29,6 +29,39 @@ const lifecycles = singleSpaAngular({
   NgZone,
 });
 
+let ngModule: any;
+
+let isAppBootstrapped = false;
+
+export const mount = async (props: any) => {
+  const containerEl = document.getElementById('angular-content');
+  if (!isAppBootstrapped) {
+    const appRootElem = document.createElement('app-root');
+    if (containerEl) containerEl.appendChild(appRootElem);
+
+    ngModule = await platformBrowserDynamic(
+      getSingleSpaExtraProviders()
+    ).bootstrapModule(AppModule);
+    isAppBootstrapped = true;
+  }
+  if (containerEl) containerEl.style.display = 'block'; // reveal the app
+};
+
+export const unmount = (props: any) => {
+  return new Promise((resolve, reject) => {
+    const containerEl = document.getElementById('angular-content');
+    if (containerEl) {
+      containerEl.style.display = 'none'; // hide the app
+      resolve(containerEl);
+    } else {
+      reject(new Error('Cannot find Angular app container'));
+    }
+  });
+};
+
 export const bootstrap = lifecycles.bootstrap;
-export const mount = lifecycles.mount;
-export const unmount = lifecycles.unmount;
+
+// default lifecycle
+
+// export const mount = lifecycles.mount;
+// export const unmount = lifecycles.unmount;
