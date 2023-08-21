@@ -1,14 +1,18 @@
 angular.module("myAngJS").controller("HomeController", function () {
-  var vm = this;
-
-  vm.$onInit = function () {
-    vm.colors = ["blue", "red", "green"];
-    vm.newColor = "";
+  this.colors = ["blue", "red", "green"];
+  this.newColor = "";
+  this.$onInit = function () {
     console.log("Home Controller is being initialized!");
   };
 
-  vm.addColor = function () {
-    vm.colors.push(vm.newColor);
-    vm.newColor = "";
+  this.addColor = function () {
+    this.colors.push(this.newColor);
+    this.newColor = "";
   };
+
+  // this.$onDestroy = function () {
+  //   console.log(
+  //     "Home Controller is being destroyed -- this shouldn't trigger :("
+  //   );
+  // };
 });

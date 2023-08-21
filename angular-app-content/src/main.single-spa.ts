@@ -33,6 +33,7 @@ let ngModule: any;
 
 let isAppBootstrapped = false;
 
+// Angular content mounting
 export const mount = async (props: any) => {
   const containerEl = document.getElementById('angular-content');
   if (!isAppBootstrapped) {
